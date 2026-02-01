@@ -1,0 +1,18 @@
+
+@import "tailwindcss";
+
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #22c55e;
+  --text-color: #111827;
+  --bg-color: #f9fafb;
+}
+
+#TaskList {
+  scrollbar-width: none; 
+}
+
+#TaskList:hover {
+  scrollbar-width:thin; 
+}

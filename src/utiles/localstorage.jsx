@@ -14,7 +14,7 @@ const employees = [
     tasks: [
       {
         title: "Design landing page",
-        description: "Create hero section UI",
+        description: "Create an engaging hero section with modern UI elements, animations, and responsive design for the website homepage",
         date: "2026-02-01",
         category: "UI/UX",
         active: false,
@@ -24,7 +24,7 @@ const employees = [
       },
       {
         title: "Fix navbar bug",
-        description: "Resolve mobile overflow issue",
+        description: "Resolve the horizontal overflow issue in mobile navigation menu that causes layout breaking on smaller screens",
         date: "2026-01-28",
         category: "Bug Fix",
         active: false,
@@ -34,7 +34,7 @@ const employees = [
       },
       {
         title: "Write docs",
-        description: "Component usage documentation",
+        description: "Prepare comprehensive documentation covering component props, usage examples, and best practices for the development team",
         date: "2026-01-30",
         category: "Documentation",
         active: false,
@@ -58,7 +58,7 @@ const employees = [
     tasks: [
       {
         title: "API integration",
-        description: "Connect auth API",
+        description: "Connect the authentication API endpoints with proper error handling, token management, and session persistence",
         date: "2026-02-02",
         category: "Backend",
         active: false,
@@ -68,7 +68,7 @@ const employees = [
       },
       {
         title: "DB cleanup",
-        description: "Remove unused tables",
+        description: "Remove deprecated database tables and optimize schema structure to improve overall database performance",
         date: "2026-01-27",
         category: "Database",
         active: false,
@@ -78,7 +78,7 @@ const employees = [
       },
       {
         title: "Optimize queries",
-        description: "Improve response time",
+        description: "Refactor slow database queries by adding proper indexes and improving query logic to reduce response time",
         date: "2026-01-29",
         category: "Performance",
         active: false,
@@ -102,7 +102,7 @@ const employees = [
     tasks: [
       {
         title: "Create test cases",
-        description: "Login module testing",
+        description: "Design and implement comprehensive test cases for the login module covering all edge cases and user scenarios",
         date: "2026-02-03",
         category: "Testing",
         active: false,
@@ -112,7 +112,7 @@ const employees = [
       },
       {
         title: "Bug verification",
-        description: "Re-test fixed bugs",
+        description: "Thoroughly re-test all previously reported bugs to verify fixes are working correctly across different environments",
         date: "2026-01-26",
         category: "QA",
         active: false,
@@ -122,7 +122,7 @@ const employees = [
       },
       {
         title: "Automation setup",
-        description: "Setup Cypress",
+        description: "Configure Cypress testing framework with proper folder structure, base configurations, and initial test suites",
         date: "2026-01-25",
         category: "Automation",
         active: false,
@@ -146,7 +146,7 @@ const employees = [
     tasks: [
       {
         title: "Content update",
-        description: "Update website text",
+        description: "Review and update all website copy including headings, descriptions, and call-to-action buttons for better engagement",
         date: "2026-02-01",
         category: "Content",
         active: true,
@@ -156,7 +156,7 @@ const employees = [
       },
       {
         title: "SEO audit",
-        description: "Fix meta tags",
+        description: "Conduct comprehensive SEO audit and fix all meta tags, alt texts, and structured data for improved search rankings",
         date: "2026-01-24",
         category: "SEO",
         active: false,
@@ -166,7 +166,7 @@ const employees = [
       },
       {
         title: "Keyword research",
-        description: "Find new keywords",
+        description: "Perform detailed keyword research using SEO tools to identify high-value keywords for content optimization strategy",
         date: "2026-01-23",
         category: "Marketing",
         active: false,
@@ -190,7 +190,7 @@ const employees = [
     tasks: [
       {
         title: "Deploy app",
-        description: "Production deployment",
+        description: "Execute production deployment with proper environment configuration, health checks, and rollback strategy in place",
         date: "2026-02-04",
         category: "DevOps",
         active: true,
@@ -200,7 +200,7 @@ const employees = [
       },
       {
         title: "Server monitoring",
-        description: "Check server logs",
+        description: "Review server logs, analyze error patterns, and set up alerts for critical issues to ensure system reliability",
         date: "2026-01-22",
         category: "Monitoring",
         active: false,
@@ -210,7 +210,7 @@ const employees = [
       },
       {
         title: "CI pipeline",
-        description: "Fix build failure",
+        description: "Debug and resolve the continuous integration pipeline build failures by fixing dependency and configuration issues",
         date: "2026-01-21",
         category: "CI/CD",
         active: false,
@@ -227,22 +227,21 @@ const admin = [
   {
     id: 0,
     email: "admin@mail.com",
-    password: "admin"
+    password: "123"
   }
 ]
 
 
- localStorage.clear()
- export const SetLocalStorage = ()=>{
-localStorage.setItem("employees", JSON.stringify(employees))
-localStorage.setItem("admin", JSON.stringify(admin))
- }
 
- export const getLocalStorage = ()=>{
-const employees=JSON.parse(localStorage.getItem("employees"))
-const admin=JSON.parse(localStorage.getItem("admin"))
+export const SetLocalStorage = () => {
+  if (!localStorage.getItem("employees")) {
+    localStorage.setItem("employees", JSON.stringify(employees))
+    localStorage.setItem("admin", JSON.stringify(admin))
+  }
+}
 
- return {employees,admin}
-
- }
-
+export const getLocalStorage = () => {
+  const employees = JSON.parse(localStorage.getItem("employees"))
+  const admin = JSON.parse(localStorage.getItem("admin"))
+  return { employees, admin }
+}

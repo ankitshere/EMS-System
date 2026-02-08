@@ -5,6 +5,8 @@ import { useState } from 'react'
 export const AuthContext=createContext ()
 
 const AuthProvider = ({children}) => {
+    
+  // localStorage.clear()
 
 
   const [UserData, setUserData] = useState(null)
